@@ -13,6 +13,13 @@
         <td>
           @<%= user.initials %>
         </td>
+        <% if current_user.is_admin? %>
+        <td>
+          <% if ! user.approved? %>
+            <%= link_to 'Approve', approve_user_path(user), method: :post, class: 'btn btn-mini' %>
+          <% end %>
+        </td>
+        <% end %>
       </tr>
   <% end %>
 </table>

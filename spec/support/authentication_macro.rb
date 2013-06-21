@@ -12,4 +12,9 @@ module AuthenticationMacro
     sign_in users(:unapproved)
   end
 
+  def login_admin
+    @request.env["devise.mapping"] = Devise.mappings[:admin]
+    sign_in users(:admin)
+  end
+
 end

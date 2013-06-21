@@ -18,4 +18,17 @@ class ProfilesController < AuthenticatedController
     end
   end
 
+  def approve
+    if current_user.is_admin?
+
+      @user = User.find_by_initials(params[:initials])
+      @user.update_attributes(approved: true)
+    else
+      @user.update_attributes(email: 'youre not admin')
+    end
+
+    redirect_to users_path
+
+  end
+
 end

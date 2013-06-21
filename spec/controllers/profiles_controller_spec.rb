@@ -27,5 +27,17 @@ describe ProfilesController do
         assigns(:profile_users).should include users(:unapproved)
       end
     end
+
+    describe 'POST approve'  do
+      before do
+        controller.stub(:authenticate_user!).and_return true
+        login_admin
+      end
+      it 'approves users' do
+        controller.stub(:current_user).and_return stub_model(User, is_admin: true, approved: true)
+        post :approve, { initials: users(:unapproved).initials }
+        User.find_by_initials(users(:unapproved).initials).approved.should eq true
+      end
+    end
   end
 end

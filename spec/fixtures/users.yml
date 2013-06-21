@@ -8,6 +8,7 @@ approved:
   approved: true
   email: david.hasselhof@127.0.0.1
   last_active_at: 2000-01-01T00:07:00.00-00:00
+  is_admin: false
 
 admin:
   id: 2
@@ -16,6 +17,7 @@ admin:
   approved: true
   email: code.holiday@127.0.0.1
   last_active_at: 2000-01-01T00:07:00.00-00:00
+  is_admin: true
 
 unapproved:
   id: 3
@@ -24,3 +26,4 @@ unapproved:
   approved: false
   email: sour.strauser@127.0.0.1
   last_active_at: 2000-01-01T00:07:00.00-00:00
+  is_admin: false
